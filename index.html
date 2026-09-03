@@ -466,11 +466,19 @@
                             <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-6">Beneficios de formar un grupo In Company</h5>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10" id="incompany-benefits"></div>
 
-                            <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-6">Proceso de inscripción</h5>
-                            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4" id="incompany-steps"></div>
-                            <div class="bg-black/20 rounded-xl p-5 border border-white/5">
-                                <h5 class="text-sm font-bold text-white mb-2">Básicos necesarios</h5>
-                                <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside" id="incompany-docs"></ul>
+                            <button onclick="toggleIncompanyProcess()" class="w-full flex items-center justify-between bg-black/20 hover:bg-black/30 border border-white/5 rounded-xl px-5 py-4 transition-colors">
+                                <span class="flex items-center gap-3 text-sm font-bold text-white uppercase tracking-wider">
+                                    <i class="fas fa-list-check text-tecmi-teal"></i> Proceso de inscripción
+                                    <span class="hidden sm:inline text-[10px] font-normal normal-case text-slate-400">5 pasos + documentos requeridos</span>
+                                </span>
+                                <i id="incompany-process-icon" class="fas fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div id="incompany-process-content" class="hidden mt-5">
+                                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4" id="incompany-steps"></div>
+                                <div class="bg-black/20 rounded-xl p-5 border border-white/5">
+                                    <h5 class="text-sm font-bold text-white mb-2">Básicos necesarios</h5>
+                                    <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside" id="incompany-docs"></ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -6105,9 +6113,9 @@
     },
     {
       "name": "LAN GO — Licenciatura en Administración de Negocios",
-      "nivel": "Licenciatura",
+      "nivel": "Licenciatura · Profesional Ejecutivo",
       "area": "Negocios y Finanzas",
-      "duracion": "Duración definida por grupo",
+      "duracion": "3 años · 15 bimestres",
       "formato": "In Company",
       "desc": "Programa especializado para empresas: no se encuentra en la oferta al público general. Diseñado específicamente para operar en modalidad In Company, permite desarrollar a un grupo completo de colaboradores bajo el mismo plan de estudios."
     },
@@ -6413,20 +6421,20 @@
   ],
   "inCompanyBenefits": [
     {
-      "title": "Sinergia del negocio",
-      "desc": "Desarrollar no solo a una persona sino a un grupo genera mayor claridad y sinergia hacia objetivos comunes, basada en el aprendizaje."
+      "title": "Impulsa la sinergia de tu organización.",
+      "desc": "Alínea a tu equipo hacia objetivos comunes y multiplica sus resultados a través de experiencias de aprendizaje compartido."
     },
     {
-      "title": "Reconocer y dar valor al talento",
-      "desc": "Es un beneficio de desarrollo para el colaborador y una forma de disminuir los niveles de rotación."
+      "title": "Retención del talento clave",
+      "desc": "Transforma el desarrollo de tus colaboradores en una ventaja competitiva. Al reconocer y potenciar sus habilidades, no solo impulsas su crecimiento, sino que disminuyes significativamente la rotación en tu empresa."
     },
     {
-      "title": "Flexibilidad de plan de pago",
-      "desc": "Con opción de pago de contado o pago por parcialidades."
+      "title": "Esquemas de inversión flexibles",
+      "desc": "Adapta el programa a las necesidades de tu presupuesto corporativo. Te ofrecemos facilidades financieras con alternativas de pago de contado o mediante planes en parcialidades."
     },
     {
-      "title": "Reportes de avance",
-      "desc": "Se entregan, con cierta temporalidad, reportes ejecutivos que dan visibilidad del avance de los colaboradores en el programa."
+      "title": "Visibilidad y métricas de impacto",
+      "desc": "Mantén el control de tus iniciativas. Recibe reportes ejecutivos periódicos que te brindarán total claridad sobre el progreso, el desempeño y los resultados de tu equipo en el programa."
     }
   ]
 };
@@ -6896,6 +6904,14 @@
             document.querySelectorAll('.maps-tab-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.mapsTab === tabId);
             });
+        }
+
+        // Acordeón: Proceso de inscripción (Grupos In Company)
+        function toggleIncompanyProcess() {
+            const content = document.getElementById('incompany-process-content');
+            const icon = document.getElementById('incompany-process-icon');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
         }
 
         function initMapsHome() {
