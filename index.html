@@ -45,24 +45,29 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .org-line::before {
-            content: '';
-            position: absolute;
-            top: -24px;
-            left: 50%;
-            width: 2px;
-            height: 24px;
-            background-color: #E2E8F0;
-        }
-        
-        .org-branch::after {
-            content: '';
-            position: absolute;
-            top: -24px;
-            left: 20%;
-            right: 20%;
-            height: 2px;
-            background-color: #E2E8F0;
+        /* Líneas conectoras del organigrama: solo en escritorio/tablet (≥768px).
+           En móvil el organigrama se apila verticalmente y estas líneas se ven
+           sobrepuestas, así que se omiten por completo debajo de ese ancho. */
+        @media (min-width: 768px) {
+            .org-line::before {
+                content: '';
+                position: absolute;
+                top: -24px;
+                left: 50%;
+                width: 2px;
+                height: 24px;
+                background-color: #E2E8F0;
+            }
+
+            .org-branch::after {
+                content: '';
+                position: absolute;
+                top: -24px;
+                left: 20%;
+                right: 20%;
+                height: 2px;
+                background-color: #E2E8F0;
+            }
         }
 
         .maps-tab-btn {
@@ -431,18 +436,23 @@
                         <!-- Tab: Convenio de Beneficios -->
                         <div id="maps-tab-convenio" class="maps-tab-panel hidden">
                             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                                <div class="lg:col-span-3 overflow-x-auto">
-                                    <table class="w-full text-sm text-left border-collapse">
-                                        <thead>
-                                            <tr class="text-tecmi-dark bg-tecmi-teal/90">
-                                                <th class="px-4 py-3 rounded-l-lg font-semibold">Promedio mín.</th>
-                                                <th class="px-4 py-3 font-semibold">Nivel académico</th>
-                                                <th class="px-4 py-3 font-semibold">Modalidad</th>
-                                                <th class="px-4 py-3 rounded-r-lg font-semibold">% Descuento</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="convenio-table-body" class="text-slate-200"></tbody>
-                                    </table>
+                                <div class="lg:col-span-3">
+                                    <!-- Vista tabla (escritorio/tablet) -->
+                                    <div class="hidden md:block overflow-x-auto">
+                                        <table class="w-full text-sm text-left border-collapse">
+                                            <thead>
+                                                <tr class="text-tecmi-dark bg-tecmi-teal/90">
+                                                    <th class="px-4 py-3 rounded-l-lg font-semibold">Promedio mín.</th>
+                                                    <th class="px-4 py-3 font-semibold">Nivel académico</th>
+                                                    <th class="px-4 py-3 font-semibold">Modalidad</th>
+                                                    <th class="px-4 py-3 rounded-r-lg font-semibold">% Descuento</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="convenio-table-body" class="text-slate-200"></tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Vista tarjetas (móvil) -->
+                                    <div class="md:hidden space-y-3" id="convenio-cards"></div>
                                     <p class="text-xs text-slate-400 mt-4">El beneficio de convenio aplica para colaborador, cónyuge e hijos. Solo aplica para nuevos alumnos (NIs) y debe cumplir los requisitos de documentación.</p>
                                 </div>
                                 <div class="lg:col-span-2 space-y-4">
@@ -468,7 +478,7 @@
                                 <p class="text-sm text-slate-200 leading-relaxed">Un grupo In Company puede formarse alrededor de <strong class="text-white">cualquier programa académico de nuestro catálogo</strong> —licenciatura, maestría o especialidad—, no solo el que se muestra como ejemplo abajo.</p>
                             </div>
                             <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-6">Proceso de inscripción</h5>
-                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4" id="incompany-steps"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4" id="incompany-steps"></div>
                             <div class="bg-black/20 rounded-xl p-5 border border-white/5 mb-8">
                                 <h5 class="text-sm font-bold text-white mb-2">Básicos necesarios</h5>
                                 <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside" id="incompany-docs"></ul>
@@ -6860,7 +6870,7 @@
             // Activar primer tab por defecto
             document.querySelector('.maps-tab-btn[data-maps-tab="programas"]').classList.add('active');
 
-            // Tabla de convenio
+            // Tabla de convenio (escritorio)
             const tbody = document.getElementById('convenio-table-body');
             tbody.innerHTML = db.convenioRows.map((r, i) => `
                 <tr class="${i % 2 === 0 ? 'bg-white/5' : ''}">
@@ -6869,6 +6879,18 @@
                     <td class="px-4 py-3">${r.modalidad}</td>
                     <td class="px-4 py-3 font-bold text-tecmi-teal">${r.descuento}</td>
                 </tr>`).join('');
+
+            // Tarjetas de convenio (móvil)
+            const cards = document.getElementById('convenio-cards');
+            cards.innerHTML = db.convenioRows.map(r => `
+                <div class="bg-black/20 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4">
+                    <div class="min-w-0">
+                        <span class="block text-sm font-bold text-white">${r.nivel}</span>
+                        <span class="block text-xs text-slate-300 mt-0.5">${r.modalidad}</span>
+                        <span class="block text-[11px] text-slate-400 mt-1">Promedio mínimo: ${r.promedio}</span>
+                    </div>
+                    <span class="text-xl font-bold text-tecmi-teal shrink-0">${r.descuento}</span>
+                </div>`).join('');
 
             // Pasos Grupos In Company
             const steps = document.getElementById('incompany-steps');
