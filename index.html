@@ -587,7 +587,7 @@
         <section id="view-role" class="hidden fade-in py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <button onclick="navigateTo('org')" class="text-slate-400 hover:text-tecmi-teal font-medium text-sm flex items-center mb-8 transition-colors">
+                <button onclick="navigateTo('org', 'sector/' + currentSector)" class="text-slate-400 hover:text-tecmi-teal font-medium text-sm flex items-center mb-8 transition-colors">
                     <i class="fas fa-arrow-left mr-2"></i> Volver a Estructura Organizacional
                 </button>
 
@@ -6441,6 +6441,7 @@
 
                 // Estado de la aplicación
         let currentSector = null;
+        let suppressHistoryPush = false; // true mientras restauramos una vista desde el historial (Atrás/Adelante)
 
         // Inicializar Sectores
         function initSectors() {
@@ -6460,7 +6461,7 @@
         }
 
         // Navegación principal
-        function navigateTo(viewId) {
+        function navigateTo(viewId, hash) {
             // Ocultar todas
             ['view-home', 'view-sectors', 'view-org', 'view-role', 'view-catalog', 'view-catalog-formal'].forEach(id => {
                 document.getElementById(id).classList.add('hidden');
@@ -6516,6 +6517,15 @@
                 renderFormalCatalog();
             }
             
+            // Actualiza la URL para que el botón Atrás/Adelante del navegador funcione,
+            // salvo cuando estamos restaurando una vista a partir de ese mismo evento.
+            if (!suppressHistoryPush) {
+                const finalHash = hash || viewId;
+                if (location.hash !== '#' + finalHash) {
+                    history.pushState({ hash: finalHash }, '', '#' + finalHash);
+                }
+            }
+            
             window.scrollTo(0,0);
         }
 
@@ -6550,7 +6560,7 @@
             document.getElementById('org-level-supervision').innerHTML = renderNodes(orgData.supervision);
             document.getElementById('org-level-operacion').innerHTML = renderNodes(orgData.operacion);
 
-            navigateTo('org');
+            navigateTo('org', 'sector/' + id);
         }
 
         // Seleccionar Rol
@@ -6617,7 +6627,7 @@
             });
             renderRoleSolutions();
 
-            navigateTo('role');
+            navigateTo('role', 'role/' + currentSector + '/' + roleId);
         }
 
         // Alterna entre Educación Abierta y Educación Formal dentro de la Ficha de Rol
@@ -6994,10 +7004,61 @@
             if (window.innerWidth >= 768) closeMobileMenu();
         });
 
+        // ==========================================
+        // HISTORIAL DEL NAVEGADOR (Atrás / Adelante / links directos)
+        // ==========================================
+        // Reconstruye la vista correspondiente a un hash de URL, por ejemplo:
+        // 'home' | 'sectors' | 'catalog' | 'catalog-formal' | 'sector/manufactura' | 'role/manufactura/mfg-dir-ops'
+        function restoreFromHash(hash) {
+            suppressHistoryPush = true;
+            if (!hash || hash === 'home') {
+                navigateTo('home');
+            } else if (hash === 'sectors') {
+                navigateTo('sectors');
+            } else if (hash === 'catalog') {
+                navigateTo('catalog');
+            } else if (hash === 'catalog-formal') {
+                navigateTo('catalog-formal');
+            } else if (hash.startsWith('sector/')) {
+                const sectorId = hash.split('/')[1];
+                const s = db.sectores.find(x => x.id === sectorId);
+                if (s) { selectSector(s.id, s.name, s.icon); } else { navigateTo('sectors'); }
+            } else if (hash.startsWith('role/')) {
+                const parts = hash.split('/');
+                const sectorId = parts[1];
+                const roleId = parts[2];
+                const s = db.sectores.find(x => x.id === sectorId);
+                if (s && db.roles[roleId]) {
+                    currentSector = sectorId;
+                    selectRole(roleId);
+                } else if (s) {
+                    selectSector(s.id, s.name, s.icon);
+                } else {
+                    navigateTo('sectors');
+                }
+            } else {
+                navigateTo('home');
+            }
+            suppressHistoryPush = false;
+        }
+
+        // El botón Atrás/Adelante del navegador dispara este evento
+        window.addEventListener('popstate', () => {
+            restoreFromHash(location.hash.replace('#', ''));
+        });
+
         // Init
         window.onload = () => {
             initSectors();
             initMapsHome();
+
+            // Si se entra con un link directo (ej. #sector/manufactura), restaura esa vista.
+            const initialHash = location.hash.replace('#', '');
+            if (initialHash) {
+                restoreFromHash(initialHash);
+            }
+            // Alinea la primera entrada del historial con la vista mostrada.
+            history.replaceState({ hash: initialHash || 'home' }, '', '#' + (initialHash || 'home'));
         };
     </script>
 </body>
