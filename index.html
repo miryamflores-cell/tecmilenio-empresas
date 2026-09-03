@@ -114,19 +114,19 @@
 
             <!-- Navegación persistente (escritorio) -->
             <nav class="hidden md:flex items-center gap-2">
-                <button onclick="navigateTo('sectors')" class="text-sm font-semibold text-slate-600 hover:text-tecmi-teal px-4 py-2 rounded-full hover:bg-tecmi-teal/5 transition-colors flex items-center gap-2">
+                <button onclick="navigateTo('sectors')" class="text-sm font-semibold text-slate-600 hover:text-tecmi-teal px-4 py-2 rounded-full hover:bg-tecmi-teal/5 transition-all transform hover:-translate-y-1 flex items-center gap-2">
                     <i class="fas fa-industry text-xs"></i> <span class="hidden sm:inline">Sectores</span>
                 </button>
-                <button onclick="navigateTo('catalog')" class="text-sm font-semibold text-slate-600 hover:text-tecmi-teal px-4 py-2 rounded-full hover:bg-tecmi-teal/5 transition-colors flex items-center gap-2">
+                <button onclick="navigateTo('catalog')" class="text-sm font-semibold text-slate-600 hover:text-tecmi-teal px-4 py-2 rounded-full hover:bg-tecmi-teal/5 transition-all transform hover:-translate-y-1 flex items-center gap-2">
                     <i class="fas fa-layer-group text-xs"></i> <span class="hidden sm:inline">Educación Abierta</span><span class="sm:hidden">Abierta</span>
                 </button>
-                <button onclick="navigateTo('catalog-formal')" class="text-sm font-semibold text-slate-600 hover:text-tecmi-teal px-4 py-2 rounded-full hover:bg-tecmi-teal/5 transition-colors flex items-center gap-2">
+                <button onclick="navigateTo('catalog-formal')" class="text-sm font-semibold text-slate-600 hover:text-tecmi-teal px-4 py-2 rounded-full hover:bg-tecmi-teal/5 transition-all transform hover:-translate-y-1 flex items-center gap-2">
                     <i class="fas fa-graduation-cap text-xs"></i> <span class="hidden sm:inline">Educación Formal (MAPS)</span><span class="sm:hidden">MAPS</span>
                 </button>
             </nav>
 
             <!-- Botón hamburguesa (móvil) -->
-            <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-tecmi-dark rounded-full hover:bg-tecmi-teal/5 transition-colors" aria-label="Abrir menú">
+            <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-tecmi-dark rounded-full hover:bg-tecmi-teal/5 transition-all transform hover:-translate-y-1" aria-label="Abrir menú">
                 <i id="mobile-menu-icon" class="fas fa-bars text-lg"></i>
             </button>
         </div>
@@ -134,13 +134,13 @@
         <!-- Menú móvil desplegable -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
             <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
-                <button onclick="navigateTo('sectors'); closeMobileMenu();" class="w-full text-left text-sm font-semibold text-slate-600 hover:text-tecmi-teal hover:bg-tecmi-teal/5 px-4 py-3 rounded-xl transition-colors flex items-center gap-3">
+                <button onclick="navigateTo('sectors'); closeMobileMenu();" class="w-full text-left text-sm font-semibold text-slate-600 hover:text-tecmi-teal hover:bg-tecmi-teal/5 px-4 py-3 rounded-xl transition-all transform hover:-translate-y-1 flex items-center gap-3">
                     <i class="fas fa-industry text-sm w-4"></i> Sectores
                 </button>
-                <button onclick="navigateTo('catalog'); closeMobileMenu();" class="w-full text-left text-sm font-semibold text-slate-600 hover:text-tecmi-teal hover:bg-tecmi-teal/5 px-4 py-3 rounded-xl transition-colors flex items-center gap-3">
+                <button onclick="navigateTo('catalog'); closeMobileMenu();" class="w-full text-left text-sm font-semibold text-slate-600 hover:text-tecmi-teal hover:bg-tecmi-teal/5 px-4 py-3 rounded-xl transition-all transform hover:-translate-y-1 flex items-center gap-3">
                     <i class="fas fa-layer-group text-sm w-4"></i> Educación Abierta
                 </button>
-                <button onclick="navigateTo('catalog-formal'); closeMobileMenu();" class="w-full text-left text-sm font-semibold text-slate-600 hover:text-tecmi-teal hover:bg-tecmi-teal/5 px-4 py-3 rounded-xl transition-colors flex items-center gap-3">
+                <button onclick="navigateTo('catalog-formal'); closeMobileMenu();" class="w-full text-left text-sm font-semibold text-slate-600 hover:text-tecmi-teal hover:bg-tecmi-teal/5 px-4 py-3 rounded-xl transition-all transform hover:-translate-y-1 flex items-center gap-3">
                     <i class="fas fa-graduation-cap text-sm w-4"></i> Educación Formal (MAPS)
                 </button>
             </nav>
@@ -179,9 +179,9 @@
                             <p class="text-slate-600 mb-6 leading-relaxed text-lg">Fundada en <strong>2002</strong> por el consejo del <strong>Tecnológico de Monterrey</strong>, brindamos una oferta educativa integral y flexible diseñada para transformar vidas y organizaciones.</p>
                             
                             <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="bg-tecmi-teal hover:bg-tecmi-lightteal text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-tecmi-teal/30 transition-all transform hover:-translate-y-1 text-sm text-center cursor-default">Educación Formal</span>
-                                <span class="bg-tecmi-teal hover:bg-tecmi-lightteal text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-tecmi-teal/30 transition-all transform hover:-translate-y-1 text-sm text-center cursor-default">Educación Abierta</span>
-                                <span class="bg-tecmi-teal hover:bg-tecmi-lightteal text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-tecmi-teal/30 transition-all transform hover:-translate-y-1 text-sm text-center cursor-default">Soluciones a Empresas</span>
+                                <span class="bg-tecmi-teal text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-tecmi-teal/30 text-sm text-center cursor-default">Educación Formal</span>
+                                <span class="bg-tecmi-teal text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-tecmi-teal/30 text-sm text-center cursor-default">Educación Abierta</span>
+                                <span class="bg-tecmi-teal text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-tecmi-teal/30 text-sm text-center cursor-default">Soluciones a Empresas</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 w-full md:w-auto">
@@ -240,55 +240,55 @@
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-route text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Aprendizaje personalizado</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-university text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Respaldo educativo con prestigio.</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-flask text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">LAB de Contenidos para desarrollo soluciones</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-chalkboard-teacher text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Instructores expertos y con capacitación continua.</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-chart-line text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Capacidad de diagnóstico pre & post estadístico.</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-sitemap text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Dirección de Consultores (sectorizado).</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-map-marked-alt text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Presencia nacional (41 campus)</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-briefcase text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Portafolio de soluciones enfocado a KPIs</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-shapes text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Metodologías de aprendizaje diversas y adaptables.</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-sliders text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Formatos de vivencia flexibles.</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-layer-group text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Plataformas de respaldo para el aprendizaje (LMS)</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-user-check text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Mentores de éxito durante toda la vivencia</span>
                             </div>
-                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5 hover:bg-white/5 hover:border-tecmi-teal/30 transition-all">
+                            <div class="bg-black/20 p-4 rounded-xl flex items-center border border-white/5">
                                 <div class="w-10 flex justify-center"><i class="fas fa-award text-tecmi-teal text-xl"></i></div>
                                 <span class="text-sm font-medium text-slate-200 ml-3">Reconocimiento físico o digital con blockchain</span>
                             </div>
@@ -378,13 +378,13 @@
 
                         <!-- Tabs -->
                         <div class="flex flex-wrap gap-2 mb-8">
-                            <button onclick="switchMapsTab('programas')" data-maps-tab="programas" class="maps-tab-btn text-sm font-semibold px-5 py-2.5 rounded-full transition-all">
+                            <button onclick="switchMapsTab('programas')" data-maps-tab="programas" class="maps-tab-btn text-sm font-semibold px-5 py-2.5 rounded-full transition-all transform hover:-translate-y-1">
                                 <i class="fas fa-layer-group mr-2"></i>Programas MAPS
                             </button>
-                            <button onclick="switchMapsTab('convenio')" data-maps-tab="convenio" class="maps-tab-btn text-sm font-semibold px-5 py-2.5 rounded-full transition-all">
+                            <button onclick="switchMapsTab('convenio')" data-maps-tab="convenio" class="maps-tab-btn text-sm font-semibold px-5 py-2.5 rounded-full transition-all transform hover:-translate-y-1">
                                 <i class="fas fa-percent mr-2"></i>Convenio de Beneficios
                             </button>
-                            <button onclick="switchMapsTab('incompany')" data-maps-tab="incompany" class="maps-tab-btn text-sm font-semibold px-5 py-2.5 rounded-full transition-all">
+                            <button onclick="switchMapsTab('incompany')" data-maps-tab="incompany" class="maps-tab-btn text-sm font-semibold px-5 py-2.5 rounded-full transition-all transform hover:-translate-y-1">
                                 <i class="fas fa-people-group mr-2"></i>Grupos In Company
                             </button>
                         </div>
@@ -466,7 +466,7 @@
                             <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-6">Beneficios de formar un grupo In Company</h5>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10" id="incompany-benefits"></div>
 
-                            <button onclick="toggleIncompanyProcess()" class="w-full flex items-center justify-between bg-black/20 hover:bg-black/30 border border-white/5 rounded-xl px-5 py-4 transition-colors">
+                            <button onclick="toggleIncompanyProcess()" class="w-full flex items-center justify-between bg-black/20 hover:bg-black/30 border border-white/5 rounded-xl px-5 py-4 transition-all transform hover:-translate-y-1">
                                 <span class="flex items-center gap-3 text-sm font-bold text-white uppercase tracking-wider">
                                     <i class="fas fa-list-check text-tecmi-teal"></i> Proceso de inscripción
                                     <span class="hidden sm:inline text-[10px] font-normal normal-case text-slate-400">5 pasos + documentos requeridos</span>
@@ -654,10 +654,10 @@
                                         Nuestras Soluciones
                                     </h3>
                                     <div class="flex gap-2 flex-shrink-0">
-                                        <button onclick="setRoleOffer('abierta')" data-offer="abierta" class="role-offer-btn active text-xs font-semibold px-4 py-2 rounded-full transition-all">
+                                        <button onclick="setRoleOffer('abierta')" data-offer="abierta" class="role-offer-btn active text-xs font-semibold px-4 py-2 rounded-full transition-all transform hover:-translate-y-1">
                                             Educación Abierta
                                         </button>
-                                        <button onclick="setRoleOffer('formal')" data-offer="formal" class="role-offer-btn text-xs font-semibold px-4 py-2 rounded-full transition-all">
+                                        <button onclick="setRoleOffer('formal')" data-offer="formal" class="role-offer-btn text-xs font-semibold px-4 py-2 rounded-full transition-all transform hover:-translate-y-1">
                                             Educación Formal
                                         </button>
                                     </div>
@@ -6449,7 +6449,7 @@
             db.sectores.forEach(s => {
                 grid.innerHTML += `
                     <div onclick="selectSector('${s.id}', '${s.name}', '${s.icon}')" 
-                        class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg hover:border-tecmi-teal transition-all cursor-pointer group text-center flex flex-col items-center">
+                        class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg hover:border-tecmi-teal transition-all transform hover:-translate-y-1 cursor-pointer group text-center flex flex-col items-center">
                         <div class="w-16 h-16 rounded-full bg-slate-50 group-hover:bg-tecmi-teal/10 flex items-center justify-center mb-4 transition-colors">
                             <i class="fas ${s.icon} text-2xl text-slate-400 group-hover:text-tecmi-teal transition-colors"></i>
                         </div>
@@ -6540,7 +6540,7 @@
             
             // Función helper para generar nodos
             const renderNodes = (nodes) => nodes.map(n => `
-                <div onclick="selectRole('${n.id}')" class="bg-white border-2 border-slate-200 hover:border-tecmi-teal rounded-xl py-3 px-6 shadow-sm hover:shadow-md cursor-pointer transition-all text-center w-full md:w-auto md:min-w-[200px] group">
+                <div onclick="selectRole('${n.id}')" class="bg-white border-2 border-slate-200 hover:border-tecmi-teal rounded-xl py-3 px-6 shadow-sm hover:shadow-md cursor-pointer transition-all transform hover:-translate-y-1 text-center w-full md:w-auto md:min-w-[200px] group">
                     <span class="block font-semibold text-tecmi-dark group-hover:text-tecmi-teal text-sm">${n.title}</span>
                 </div>
             `).join('');
@@ -6658,13 +6658,13 @@
 
                 if (s.url) {
                     return `
-                        <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="block bg-slate-50 border border-slate-200 p-5 rounded-2xl hover:border-tecmi-teal hover:shadow-md transition-all group cursor-pointer">
+                        <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="block bg-slate-50 border border-slate-200 p-5 rounded-2xl hover:border-tecmi-teal hover:shadow-md transition-all transform hover:-translate-y-1 group cursor-pointer">
                             ${innerContent}
                         </a>
                     `;
                 } else {
                     return `
-                        <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl hover:border-tecmi-teal hover:shadow-md transition-all group">
+                        <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl">
                             ${innerContent}
                         </div>
                     `;
@@ -6698,7 +6698,7 @@
                                     <strong class="text-tecmi-dark">Co-creación de certificados:</strong> su expertise se convierte en contenido de aula. Los especialistas de su empresa co-diseñan cada certificado junto con Tecmilenio, para que responda exactamente a lo que el mercado laboral exige. Y ese conocimiento no se queda ahí: puede sumarse a un programa académico completo.
                                 </p>
                             </div>
-                            <a href="https://utmedu-my.sharepoint.com/:b:/g/personal/miryam_flores_tecmilenio_mx/IQDbSSlm0NRJQpSx0l1RQF3CAXPgNGORqs-9NZTh00tRDX8?e=5LPPgY" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 inline-flex items-center justify-center gap-2 text-xs font-semibold text-white bg-tecmi-dark hover:bg-tecmi-teal px-4 py-2.5 rounded-full transition-colors self-start sm:self-center">
+                            <a href="https://utmedu-my.sharepoint.com/:b:/g/personal/miryam_flores_tecmilenio_mx/IQDbSSlm0NRJQpSx0l1RQF3CAXPgNGORqs-9NZTh00tRDX8?e=5LPPgY" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 inline-flex items-center justify-center gap-2 text-xs font-semibold text-white bg-tecmi-dark hover:bg-tecmi-teal px-4 py-2.5 rounded-full transition-all transform hover:-translate-y-1 self-start sm:self-center">
                                 <i class="fas fa-file-pdf"></i> Certificados y Co-brandeo
                             </a>
                         </div>
@@ -6716,19 +6716,19 @@
         function initCatalog() {
             const lineFilters = document.getElementById('catalog-line-filters');
             const allLineBtn = `
-                <button onclick="setCatalogLine('all')" data-line="all" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all">
+                <button onclick="setCatalogLine('all')" data-line="all" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all transform hover:-translate-y-1">
                     Todas las líneas
                 </button>`;
             const lineBtns = db.lines.map(l => `
-                <button onclick="setCatalogLine('${l.id}')" data-line="${l.id}" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all flex items-center gap-2">
+                <button onclick="setCatalogLine('${l.id}')" data-line="${l.id}" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all transform hover:-translate-y-1 flex items-center gap-2">
                     <i class="fas ${l.icon} text-xs"></i> ${l.name}
                 </button>`).join('');
             lineFilters.innerHTML = allLineBtn + lineBtns;
 
             const tipos = [...new Set(db.catalog.map(c => c.tipo))];
             const typeFilters = document.getElementById('catalog-type-filters');
-            const allTypeBtn = `<button onclick="setCatalogType('all')" data-type="all" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all">Todos los tipos</button>`;
-            const typeBtns = tipos.map(t => `<button onclick="setCatalogType('${t}')" data-type="${t}" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all">${t}</button>`).join('');
+            const allTypeBtn = `<button onclick="setCatalogType('all')" data-type="all" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all transform hover:-translate-y-1">Todos los tipos</button>`;
+            const typeBtns = tipos.map(t => `<button onclick="setCatalogType('${t}')" data-type="${t}" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all transform hover:-translate-y-1">${t}</button>`).join('');
             typeFilters.innerHTML = allTypeBtn + typeBtns;
 
             updateCatalogFilterStyles();
@@ -6790,7 +6790,7 @@
             grid.innerHTML = filtered.map(item => {
                 const line = db.lines.find(l => l.id === item.linea);
                 return `
-                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-tecmi-teal transition-all flex flex-col">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-tecmi-teal bg-tecmi-teal/10 px-2 py-1 rounded-md">${item.tipo}</span>
                         <i class="fas ${line ? line.icon : 'fa-layer-group'} text-slate-300"></i>
@@ -6815,13 +6815,13 @@
         function initFormalCatalog() {
             const niveles = [...new Set(db.formalPrograms.map(p => p.nivel))];
             const levelFilters = document.getElementById('formal-level-filters');
-            const allLevelBtn = `<button onclick="setFormalLevel('all')" data-level="all" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all">Todos los niveles</button>`;
-            const levelBtns = niveles.map(n => `<button onclick="setFormalLevel('${n}')" data-level="${n}" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all">${n}</button>`).join('');
+            const allLevelBtn = `<button onclick="setFormalLevel('all')" data-level="all" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all transform hover:-translate-y-1">Todos los niveles</button>`;
+            const levelBtns = niveles.map(n => `<button onclick="setFormalLevel('${n}')" data-level="${n}" class="catalog-line-btn text-sm font-semibold px-5 py-2 rounded-full border-2 transition-all transform hover:-translate-y-1">${n}</button>`).join('');
             levelFilters.innerHTML = allLevelBtn + levelBtns;
 
             const areaFilters = document.getElementById('formal-area-filters');
-            const allAreaBtn = `<button onclick="setFormalArea('all')" data-area="all" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all">Todas las áreas</button>`;
-            const areaBtns = db.formalAreas.map(a => `<button onclick="setFormalArea('${a}')" data-area="${a}" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all">${a}</button>`).join('');
+            const allAreaBtn = `<button onclick="setFormalArea('all')" data-area="all" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all transform hover:-translate-y-1">Todas las áreas</button>`;
+            const areaBtns = db.formalAreas.map(a => `<button onclick="setFormalArea('${a}')" data-area="${a}" class="catalog-type-btn text-xs font-medium px-4 py-1.5 rounded-full transition-all transform hover:-translate-y-1">${a}</button>`).join('');
             areaFilters.innerHTML = allAreaBtn + areaBtns;
 
             updateFormalFilterStyles();
@@ -6880,7 +6880,7 @@
             empty.classList.add('hidden');
 
             grid.innerHTML = filtered.map(p => `
-                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-tecmi-teal transition-all flex flex-col">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-tecmi-teal bg-tecmi-teal/10 px-2 py-1 rounded-md">${p.nivel}</span>
                         <i class="fas fa-graduation-cap text-slate-300"></i>
